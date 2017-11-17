@@ -22,9 +22,11 @@ def htmlList (list):
   return ulList
     
 htmlList(languages)
+```
 
 Things to consider if the original list was provided by user input:
-
+- Possible html/script injection. To prevent this I would escape the data received by the user input.
+- Format of the input. To make sure the input is a string I would put a conditional statement.
 <br>
 4. <i><b>List 2-3 attacks that web applications are vulnerable to. How do these attacks work? How can we prevent those attacks? </b></i><br>
 
