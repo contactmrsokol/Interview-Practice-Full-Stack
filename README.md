@@ -29,7 +29,38 @@ Things to consider if the original list was provided by user input:
 - Format of the input. To make sure the input is a string I would put a conditional statement.
 <br>
 4. <i><b>List 2-3 attacks that web applications are vulnerable to. How do these attacks work? How can we prevent those attacks? </b></i><br>
+- SQL injection occurs when malicious SQL statements are inserted into form fields to try and gather information from the database. This information enables the hacker to access, modify or destroy information in the database.
+- Cross-Site Scripting (XSS) occurs when malicious code is injected into an application that executes on the client side.
+-  Cross Site Request Forgery (CSRF) attacks occur when a user is tricked into clicking a link or downloading an image that executes unwanted or unknown actions on an authenticated user session.
+To prevent the attack one must do the following:
+- Using stored procedures with parameters that are automatically parameterized.
+- Implementing CAPTCHA or prompting users to answer questions. This ensures that a form or request is being submitted by a human and not a bot.
+- Use a Web Application Firewall (WAF) to monitor your network and block potential attacks.
+<br>
+5. <i><b>Here is some starter code for a Flask Web Application. Expand on that and include a route that simulates rolling two dice and returns the result in JSON. You should include a brief explanation of your code.</b></i>
+```
+from flask import Flask
+app = Flask(__name__)
 
-5. <i><b>Expand on the starter code and include a route that simulates rolling two dice and returns the result in JSON. You should include a brief explanation of your code.</b></i>
+import json
+import random
 
+@app.route('/')
+def hello_world():
+ return 'Hello World!'
+
+@app.route('/dice')
+#Generate two random numbers and return in json form 1st number, 2nd number, and their sum
+def dice():
+    dice1 = random.randint(1, 6)
+    dice2 = random.randint(1, 6)
+    diceroll = dice1 + dice2
+    return jsonify(dice1=dice1, dice2=dice2, diceroll=diceroll)
+
+if __name__ == '__main__':
+ app.debug = True
+ app.run()
+ ```
+ <br>
 6. <i><b>If you were to start your full-stack developer position today, what would be your goals a year from now?</b></i><br>
+To have learned from more experienced members of the team as well as to pass my knowledge onto others. Become an integral part of the team. And to have been proud of the work I have done for the past year.
